@@ -1,0 +1,38 @@
+"""
+RECORD CHECK  -  my version
+===========================
+
+Name  : mohammed imthiyas
+Lane  : Cyber   
+Date  : 15/10/2026
+
+Run it:   python template.py
+
+Work through the numbered sections in order. Each one tells you what it must do.
+Delete these instructions as you replace them with your code.
+"""
+
+def check_record(value, limit):
+    difference = value - limit
+    percent = value / limit * 100
+    status = "OVER LIMIT" if value > limit else "OK"
+    return difference, percent, status
+
+def print_report(label, value, limit):
+    difference, percent, status = check_record(value, limit)
+    print(label, value, difference, percent, status)
+
+records = [
+    {"label": "R-001", "value": 90.0, "limit": 100.0},
+    {"label": "R-002", "value": 120.0, "limit": 100.0},
+    {"label": "R-003", "value": 75.0, "limit": 80.0}
+]
+
+count = 0
+
+for r in records:
+    print_report(r["label"], r["value"], r["limit"])
+    if r["value"] > r["limit"]:
+        count += 1
+
+print("Over limit:", count)
